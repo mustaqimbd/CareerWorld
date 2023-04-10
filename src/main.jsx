@@ -4,6 +4,7 @@ import App from './App'
 import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Components/Homepage/Home'
+import DetailsPage from './Components/Detailspage/DetailsPage'
 const router = createBrowserRouter([
   {
     path: '/',
@@ -13,6 +14,13 @@ const router = createBrowserRouter([
         path: '/',
         element: <Home />,
         loader: () => fetch('/featuredjobsdata.json')
+      },
+      {
+        path: '/job/:id',
+        element: <DetailsPage />,
+        loader: async ({ params }) => {
+          return params.id;
+        },
       }
     ]
   },

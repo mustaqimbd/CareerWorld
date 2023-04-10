@@ -10,7 +10,6 @@ const Home = () => {
     const [seeAll, setSeeAll] = useState(false);
     const featuredjobsdata = useLoaderData();
 
-    console.log(featuredjobsdata)
     useEffect(() => {
         async function fetchData() {
             const res = await fetch('/joblist.json')

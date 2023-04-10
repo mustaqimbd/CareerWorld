@@ -4,5 +4,5 @@
 
 .btn-primary {
   @apply text-[20px] font-bold 
-  text-[#FFFFFF] bg-[#7E90FE] px-4 py-3 rounded-md;
+  text-[#FFFFFF] bg-[#9873FF] px-4 py-3 rounded-md;
 }

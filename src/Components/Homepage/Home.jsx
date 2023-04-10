@@ -7,7 +7,9 @@ import FeaturedJobs from './FeaturedJobs';
 
 const Home = () => {
     const [jobdata, setJobsdata] = useState([]);
+    const [seeAll, setSeeAll] = useState(false);
     const featuredjobsdata = useLoaderData();
+
     console.log(featuredjobsdata)
     useEffect(() => {
         async function fetchData() {
@@ -38,8 +40,12 @@ const Home = () => {
                 </div>
                 <div className='grid grid-cols-2 gap-8'>
                     {
-                        featuredjobsdata.map(singlejobdata => <FeaturedJobs singlejobdata={singlejobdata} key={singlejobdata.id} />)
+                        seeAll ? featuredjobsdata.map(singlejobdata => <FeaturedJobs singlejobdata={singlejobdata} key={singlejobdata.id} />)
+                            : featuredjobsdata.slice(0, 4).map(singlejobdata => <FeaturedJobs singlejobdata={singlejobdata} key={singlejobdata.id} />)
                     }
+                </div>
+                <div className='flex justify-center'>
+                    <button onClick={() => setSeeAll(true)} className='btn-primary w-[150px] my-5'>See all jobs</button>
                 </div>
             </div>
         </div>

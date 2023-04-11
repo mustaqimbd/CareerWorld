@@ -7,10 +7,12 @@ import Home from './Components/Homepage/Home'
 import DetailsPage from './Components/Detailspage/DetailsPage'
 import AppliedJobs from './Components/AppliedJobs/AppliedJobs'
 import Statistics from './Components/Statistics/Statistics'
+import ErrorHandlePage from './Components/ErrorHandlePage'
 const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
+    errorElement: <ErrorHandlePage />,
     children: [
       {
         path: '/',
@@ -29,8 +31,8 @@ const router = createBrowserRouter([
         element: <AppliedJobs />
       },
       {
-        path:'statistics',
-        element:<Statistics />
+        path: 'statistics',
+        element: <Statistics />
       }
     ]
   },

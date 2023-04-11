@@ -1,13 +1,14 @@
 import React, { useContext, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Data } from '../../App';
+import { saveJobs } from '../../utilitis';
 
 const DetailsPage = () => {
     const jobdata = useContext(Data)
-    const id = useLoaderData();
-    const getData = jobdata.find(job => job.id == id);
-    const { jobTitle, companyName, companyLogo, location, fulltimeOrParttime, remoteOrOnsite, salary, jobDescription, jobResponsibility, educationalRequirements, experiences } = getData ? getData : {};
-    console.log(getData)
+    const pid = useLoaderData();
+    const getData = jobdata.find(job => job.id == pid);
+    const {id, jobTitle, salary, jobDescription, jobResponsibility, educationalRequirements, experiences, contactInformation } = getData ? getData : {};
+    const { phone, email, Address } = contactInformation ? contactInformation : {};
 
     return (
         <div>
@@ -30,12 +31,12 @@ const DetailsPage = () => {
                         <p><img className='inline-block mr-1' src="/Icons/Frame-1.png" alt="" /><strong>Job title : </strong>{jobTitle}</p>
                         <p className='font-extrabold text-lg'>Contact information</p>
                         <hr />
-                        <p><img className='inline-block mr-1' src="/Icons/Frame-2.png" alt="" /><strong>Phone : </strong></p>
-                        <p><img className='inline-block mr-1' src="/Icons/Frame-3.png" alt="" /><strong>Email : </strong></p>
-                        <p><img className='inline-block mr-1' src="/Icons/Frame-4.png" alt="" /><strong>Address : </strong></p>
+                        <p><img className='inline-block mr-1' src="/Icons/Frame-2.png" alt="" /><strong>Phone : </strong>{phone}</p>
+                        <p><img className='inline-block mr-1' src="/Icons/Frame-3.png" alt="" /><strong>Email : </strong>{email}</p>
+                        <p><img className='inline-block mr-1' src="/Icons/Frame-4.png" alt="" /><strong>Address : </strong>{Address}</p>
 
                     </div>
-                    <div className='btn-primary text-center'><Link>Apply Now</Link></div>
+                    <div onClick={()=>saveJobs(id)} className='btn-primary text-center cursor-pointer'><Link>Apply Now</Link></div>
                 </div>
             </div>
         </div>

@@ -1,12 +1,26 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { getAppliedJobs } from '../../utilitis';
+import { Data } from '../../App';
+import FeaturedJobs from '../Homepage/FeaturedJobs';
+import CommonHeader from '../Detailspage/CommonHeader';
 
 const AppliedJobs = () => {
+    const jobsdata = useContext(Data)
     const appliedjobsId = getAppliedJobs();
-    console.log(appliedjobsId)
+    let appliedJobs = []
+    for (let id in appliedjobsId) {
+        const getJob = jobsdata.find(job => job.id == id);
+        if(getJob){
+            appliedJobs.push(getJob)
+        }
+    }
+    
     return (
         <div>
-            <h1>This is applied jjobs</h1>
+            <CommonHeader text='Applied Jobs' />
+            {
+                appliedJobs.map(singlejobdata=><FeaturedJobs singlejobdata={singlejobdata} key={singlejobdata.id} AppliedJobsStyle={true} />)
+            }
         </div>
     );
 };

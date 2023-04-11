@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { Data } from '../../App';
 import { saveJobs } from '../../utilitis';
+import CommonHeader from './CommonHeader';
 
 const DetailsPage = () => {
     const jobdata = useContext(Data)
@@ -12,7 +13,7 @@ const DetailsPage = () => {
 
     return (
         <div>
-            <div className='h-[150px] bg-[#F9F9FF] flex justify-center'><h1 className='text-2xl font-bold mt-6'>Job Details</h1></div>
+            <CommonHeader text='Jobs Details' />
             <div className='flex gap-5 my-10'>
                 <div className='flex flex-col gap-5 w-[63%]'>
                     <p><strong>Job Description :</strong> {jobDescription}</p>

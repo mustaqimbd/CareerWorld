@@ -8,8 +8,8 @@ const data = [
   { assignment: 'Assignment 4', mark: 60 },
   { assignment: 'Assignment 5', mark: 60 },
   { assignment: 'Assignment 6', mark: 60 },
-  { assignment: 'Assignment 7', mark: 60 },
-  { assignment: 'Assignment 8', mark: 60 },
+  { assignment: 'Assignment 7', mark: 60 }
+  
 ];
 
 const Statistics = () => {

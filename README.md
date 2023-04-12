@@ -5,4 +5,4 @@
 * The website has job details viewing system, job applying system, applied jobs viewing system.
 * The website has ,applied jobs filter system and statistics viewing point etc.
 
-[Live site link :] (https://shimmering-beijinho-69909a.netlify.app/)
+Live site link : https://shimmering-beijinho-69909a.netlify.app/
